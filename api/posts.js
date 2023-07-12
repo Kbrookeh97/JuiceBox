@@ -1,4 +1,7 @@
+const express = require('express');
+const postsRouter = express.Router();
 const { requireUser } = require('./utils');
+const { createPost, getAllPosts, updatePost, getPostById, } = require('../db');
 
 postsRouter.post('/', requireUser, async (req, res, next) => {
   const { title, content, tags = "" } = req.body;
